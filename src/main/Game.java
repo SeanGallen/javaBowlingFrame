@@ -10,9 +10,9 @@ public class Game {
 	public Game() {
 		frames = new ArrayList<Frame>();
 		for (int i = 0; i < 9; i++) {
-			frames.add(new NonFinalFrame());			
+			frames.add(new Frame());			
 		}
-		frames.add(new FinalFrame());
+		frames.add(new Frame());
 	}
 	
 	public void updateScore(int numberOfPinsKnockedDown) {
