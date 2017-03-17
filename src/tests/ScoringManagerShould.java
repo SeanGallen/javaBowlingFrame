@@ -60,7 +60,7 @@ public class ScoringManagerShould {
 		
 		int testScore = manager.rollScore(6, 3, 4);
 		
-		assertEquals(0, manager.score());
+		assertEquals(testScore, manager.score());
 	
     }
 }
