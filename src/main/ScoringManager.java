@@ -1,10 +1,31 @@
 package main;
 
-public class ScoringManager {
+import java.util.ArrayList;
 
-	public int score(Object game) {
+public class ScoringManager {
+	
+	private ArrayList<Frame>  firstGame;
+	private int currentFrame;
+	
+	private int score;
+	
+	public int rollScore(int first, int second, int currentScore) {
+
+			firstGame.get(currentFrame).attempts.get(0).setPinsKnockedDown(first);
+			firstGame.get(currentFrame).attempts.get(1).setPinsKnockedDown(second);
 		
-		return 4;
+		    score = firstGame.get(currentFrame).attempts.get(0).getPinsKnockedDown();
+			score += firstGame.get(currentFrame).attempts.get(1).getPinsKnockedDown();
+			score += currentScore;
+	
+	
+		return score;
+	}
+
+  
+
+	public int score() {		
+		return score;
 	}
 
 }
