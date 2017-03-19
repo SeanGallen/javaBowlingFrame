@@ -15,7 +15,7 @@ import main.ScoringManager;
 public class ScoringManagerShould {
 	private ScoringManager manager;
 	private Game game;
-	
+	private int score;
 	private ArrayList<Frame>  firstGame;
 	private int currentFrame;
 
@@ -24,7 +24,7 @@ public class ScoringManagerShould {
 	public void setup() {
 		game = new Game();
 		manager = new ScoringManager();
-	    //score = manager.score();
+	    score = manager.score();
 		
 	    firstGame = game.getFrames();
 	}
@@ -34,7 +34,7 @@ public class ScoringManagerShould {
 		firstGame.get(currentFrame).attempts.get(0).setPinsKnockedDown(first);
 		firstGame.get(currentFrame).attempts.get(1).setPinsKnockedDown(second);
 		
-		int score = firstGame.get(currentFrame).attempts.get(0).getPinsKnockedDown();
+	    score = firstGame.get(currentFrame).attempts.get(0).getPinsKnockedDown();
 		score += firstGame.get(currentFrame).attempts.get(1).getPinsKnockedDown();
 		score += currentScore;
 		
