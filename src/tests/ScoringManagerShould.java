@@ -15,7 +15,7 @@ import main.ScoringManager;
 public class ScoringManagerShould {
 	private ScoringManager manager;
 	private Game game;
-	//private int score;
+	
 	private ArrayList<Frame>  firstGame;
 	private int currentFrame;
 

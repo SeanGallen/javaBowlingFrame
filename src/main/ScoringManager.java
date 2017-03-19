@@ -4,10 +4,15 @@ import java.util.ArrayList;
 
 public class ScoringManager {
 	
-	private ArrayList<Frame>  firstGame;
+	private Game  game = new Game();;
 	private int currentFrame;
+	private ArrayList<Frame>  firstGame;
 	
 	private int score;
+	
+	public ScoringManager() {
+		   firstGame = game.getFrames();
+	}
 	
 	public int rollScore(int first, int second, int currentScore) {
 
