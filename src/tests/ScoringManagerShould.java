@@ -48,8 +48,9 @@ public class ScoringManagerShould {
 	@Test
 	public void scoreFirstFrameGame() {
 
-		int testScore = manager.rollScore(1, 3, 0);
-
+		int testScore = rollScore(1, 3, 0);
+		manager.rollScore(1, 3, 0);
+		
 		assertEquals(testScore, manager.score());
 	}
 

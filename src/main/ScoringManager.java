@@ -14,7 +14,7 @@ public class ScoringManager {
 		   firstGame = game.getFrames();
 	}
 	
-	public int rollScore(int first, int second, int currentScore) {
+	public void rollScore(int first, int second, int currentScore) {
 
 			firstGame.get(currentFrame).attempts.get(0).setPinsKnockedDown(first);
 			firstGame.get(currentFrame).attempts.get(1).setPinsKnockedDown(second);
@@ -23,8 +23,6 @@ public class ScoringManager {
 			score += firstGame.get(currentFrame).attempts.get(1).getPinsKnockedDown();
 			score += currentScore;
 	
-	
-		return score;
 	}
 
   
