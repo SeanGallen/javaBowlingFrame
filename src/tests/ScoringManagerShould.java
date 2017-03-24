@@ -62,4 +62,24 @@ public class ScoringManagerShould {
 		assertEquals(testScore, manager.score());
 
 	}
+	
+	@Test
+	public void scoreThirdFrameGame() {
+
+		int testScore = rollScore(10, 0, 13);
+		manager.rollScore(10, 0, 13);
+		
+		assertEquals(13, manager.score());
+	}
+	
+	@Test
+	public void scoreFourthFrameGame() {
+
+		int testScore = rollScore(1, 1, 25);
+		manager.rollScore(1, 1, 25);
+		
+		assertEquals(testScore, manager.score());
+	}
+	
+	
 }
