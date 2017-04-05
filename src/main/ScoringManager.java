@@ -15,7 +15,7 @@ public class ScoringManager {
 						+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
 				frames.get(i).setScore(frameScore);
 			}
-			
+
 			else if (i == 9) {
 				int frameScore = 0;
 				for (Attempt attempt : frames.get(i).getAttempts()) {
@@ -27,10 +27,10 @@ public class ScoringManager {
 			else {
 				// process strike
 				if (frames.get(i).getAttempts().get(0).getPinsKnockedDown() == 10) {
-					
+
 					// mark frame as strike
 					frames.get(i).isStrike = true;
-					
+
 					// score frame based on next two rolls
 					if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
 						int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
@@ -43,17 +43,17 @@ public class ScoringManager {
 						frames.get(i).setScore(frameScore);
 					}
 				}
-				
+
 				// process spare
 				else if (frames.get(i).getAttempts().get(0).getPinsKnockedDown() + frames.get(i).getAttempts().get(1).getPinsKnockedDown() == 10) {
 					// mark frame as spare
 					frames.get(i).isSpare = true;
-					
+
 					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
 				}
-				
-				
+
+
 				// process regular
 				else {
 					int frameScore = 0;
@@ -70,7 +70,7 @@ public class ScoringManager {
 		// total each frame score to get game score
 		for (Frame frame : frames) {
 			if (frame.isComplete) {
-				gameScore += frame.getScore();	
+				gameScore += frame.getScore();
 			}
 		}
 
@@ -79,7 +79,7 @@ public class ScoringManager {
 
 	public void processStrikes(Game game) {
 		ArrayList<Frame> frames = game.getFrames();
-		
+
 		for (int i = 0; i < frames.size(); i++) {
 
 			// score final frame
@@ -89,7 +89,7 @@ public class ScoringManager {
 						+ frames.get(i).getAttempts().get(2).getPinsKnockedDown();
 				frames.get(i).setScore(frameScore);
 			}
-			
+
 			// score strike frame
 			else if (frames.get(i).isStrike) {
 				if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
