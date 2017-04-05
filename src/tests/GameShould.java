@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import main.Attempt;
-import main.Frame;
+import main.NonFinalFrame;
 import main.Game;
 
 
@@ -37,34 +37,8 @@ public class GameShould {
 	}
 	
 	@Test
-	public void CompleteAFrame() {
-		int attempt1PinsKnockedDown = 1;
-		int attempt2PinsKnockedDown = 5;
-		
-		Frame frame = game.getFrames().get(0);
-		frame.attempts.get(0).setPinsKnockedDown(attempt1PinsKnockedDown);
-		frame.attempts.get(1).setPinsKnockedDown(attempt2PinsKnockedDown);
-		frame.markAsComplete();
-		
-		assertTrue(frame.getCompletionStatus());
-	}
-	
-	@Test
-	public void HaveACompletedNonFinalFrame() {
-		int attempt1PinsKnockedDown = 1;
-		int attempt2PinsKnockedDown = 5;
-		
-		Frame frame = (Frame)game.getFrames().get(0);
-		Attempt attempt1 = frame.attempts.get(0);
-		attempt1.setPinsKnockedDown(attempt1PinsKnockedDown);
-		Attempt attempt2 = frame.attempts.get(1);
-		attempt2.setPinsKnockedDown(attempt2PinsKnockedDown);
-		frame.markAsComplete();
-		
-		int expected = 1;
-		ArrayList<Frame> completedFrames = game.getCompletedFrames();
-		
-		assertEquals(expected, completedFrames.size());
+	public void GetCompletedFrames() {
+		// TODO: finish test
 	}
 	
 	@Test

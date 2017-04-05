@@ -1,5 +1,4 @@
-# javaBowlingFrame
-##Uncle Bob’s Bowling Game Kata
+Uncle Bob’s Bowling Game Kata
 Sharpening some Java skills.
 
 A game of tenpins bowling lasts ten frames, in each of which the bowler makes one or two attempts to knock down ten pins arranged in a triangle. If the bowler knocks down all ten pins on the first attempt (that’s called a “strike”), he scores ten pins plus the number of pins knocked down on his next two rolls.

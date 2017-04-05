@@ -6,15 +6,9 @@ public class Game {
 
 	private int score;
 	public ArrayList<Frame> frames;
-	private int twoAttempts = new AttemptAmounts().twoAttempts();
-	private int threeAttempts = new AttemptAmounts().threeAttempts();
 	
 	public Game() {
-		frames = new ArrayList<Frame>();
-		for (int i = 0; i < 9; i++) {
-			frames.add(new Frame(twoAttempts));			
-		}
-		frames.add(new Frame(threeAttempts));
+		frames = initializeFrames();
 	}
 	
 	public void updateScore(int numberOfPinsKnockedDown) {
@@ -28,16 +22,34 @@ public class Game {
 	public ArrayList<Frame> getFrames() {
 		return frames;
 	}
+	
+	public void setFrame(int frameIndex) {
+		
+	}
 
 	public ArrayList<Frame> getCompletedFrames() {
 		ArrayList<Frame> completedFrames = new ArrayList<Frame>();
 		
 		for (Frame frame: getFrames()) {
-			if (frame.getCompletionStatus()) {
+			if (frame.isComplete) {
 				completedFrames.add(frame);
 			}
 		}
 		return completedFrames;
+	}
+	
+	private ArrayList<Frame> initializeFrames() {
+		ArrayList<Frame> frames = new ArrayList<Frame>();
+		
+		// add non-final frames
+		for (int i = 0; i < 9; i++) {
+			frames.add(new NonFinalFrame());			
+		}
+		
+		// add final frames
+		frames.add(new FinalFrame());
+		
+		return frames;
 	}
 
 }
