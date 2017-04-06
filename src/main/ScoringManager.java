@@ -67,13 +67,18 @@ public class ScoringManager {
 
 		}
 
+		
+
+		return totalEachFrameScore(frames);
+	}
+	
+	public int totalEachFrameScore(ArrayList<Frame> frames) {
 		// total each frame score to get game score
 		for (Frame frame : frames) {
 			if (frame.isComplete) {
 				gameScore += frame.getScore();
 			}
 		}
-
 		return gameScore;
 	}
 
