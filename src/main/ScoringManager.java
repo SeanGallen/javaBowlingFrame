@@ -3,10 +3,12 @@ package main;
 import java.util.ArrayList;
 
 public class ScoringManager {
+	private int gameScore;
+	private ArrayList<Frame> frames;
 
 	public int score(Game game) {
-		int gameScore = 0;
-		ArrayList<Frame> frames = game.getFrames();
+
+		frames = game.getFrames();
 
 		for (int i = 0; i < frames.size(); i++) {
 
@@ -23,8 +25,7 @@ public class ScoringManager {
 				}
 
 				frames.get(i).setScore(frameScore);
-			}
-			else {
+			} else {
 				// process strike
 				if (frames.get(i).getAttempts().get(0).getPinsKnockedDown() == 10) {
 
@@ -36,8 +37,7 @@ public class ScoringManager {
 						int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 								+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
 						frames.get(i).setScore(frameScore);
-					}
-					else {
+					} else {
 						int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 								+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
 						frames.get(i).setScore(frameScore);
@@ -45,14 +45,14 @@ public class ScoringManager {
 				}
 
 				// process spare
-				else if (frames.get(i).getAttempts().get(0).getPinsKnockedDown() + frames.get(i).getAttempts().get(1).getPinsKnockedDown() == 10) {
+				else if (frames.get(i).getAttempts().get(0).getPinsKnockedDown()
+						+ frames.get(i).getAttempts().get(1).getPinsKnockedDown() == 10) {
 					// mark frame as spare
 					frames.get(i).isSpare = true;
 
 					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
 				}
-
 
 				// process regular
 				else {
@@ -96,8 +96,7 @@ public class ScoringManager {
 					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 							+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
-				}
-				else {
+				} else {
 					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 							+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
