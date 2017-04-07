@@ -16,7 +16,7 @@ public class ScoringManager {
 			if (i == 8) {
 			   frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 						+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
-				frames.get(i).setScore(frameScore);
+				
 			}
 
 			else if (i == 9) {
@@ -25,23 +25,22 @@ public class ScoringManager {
 					frameScore += attempt.getPinsKnockedDown();
 				}
 
-				frames.get(i).setScore(frameScore);
+			
 			} else {
 				// process strike
 				if (frames.get(i).getAttempts().get(0).getPinsKnockedDown() == 10) {
 
-					// mark frame as strike
-					frames.get(i).isStrike = true;
+					
 
 					// score frame based on next two rolls
 					if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
 						 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 								+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
-						frames.get(i).setScore(frameScore);
+						//frames.get(i).setScore(frameScore);
 					} else {
 						 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 								+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
-						frames.get(i).setScore(frameScore);
+						
 					}
 				}
 
@@ -52,7 +51,7 @@ public class ScoringManager {
 					frames.get(i).isSpare = true;
 
 					 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
-					frames.get(i).setScore(frameScore);
+				
 				}
 
 				// process regular
@@ -62,9 +61,10 @@ public class ScoringManager {
 						frameScore += attempt.getPinsKnockedDown();
 					}
 
-					frames.get(i).setScore(frameScore);
+		
 				}
 			}
+			frames.get(i).setScore(frameScore);
 
 		}
 
@@ -91,7 +91,7 @@ public class ScoringManager {
 				 frameScore = frames.get(i).getAttempts().get(0).getPinsKnockedDown()
 						+ frames.get(i).getAttempts().get(1).getPinsKnockedDown()
 						+ frames.get(i).getAttempts().get(2).getPinsKnockedDown();
-				frames.get(i).setScore(frameScore);
+	
 			}
 
 			// score strike frame
@@ -99,11 +99,11 @@ public class ScoringManager {
 				if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
 					 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 							+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
-					frames.get(i).setScore(frameScore);
+					
 				} else {
 					 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 							+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
-					frames.get(i).setScore(frameScore);
+			
 				}
 
 			}
@@ -111,9 +111,11 @@ public class ScoringManager {
 			// score spare frame
 			else if (frames.get(i).isSpare) {
 				 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
-				frames.get(i).setScore(frameScore);
+				
 			}
+			frames.get(i).setScore(frameScore);
 		}
+		
 	}
 
 }
