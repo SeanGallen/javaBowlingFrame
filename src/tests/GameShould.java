@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import main.Attempt;
-import main.NonFinalFrame;
+
+
 import main.Game;
 
 

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import main.Attempt;
 import main.FinalFrame;
-import main.NonFinalFrame;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class ScoringManager {
 	private int gameScore;
+	private int frameScore;
 	private ArrayList<Frame> frames;
 
 	public int score(Game game) {
@@ -13,13 +14,13 @@ public class ScoringManager {
 		for (int i = 0; i < frames.size(); i++) {
 
 			if (i == 8) {
-				int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
+			   frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 						+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
 				frames.get(i).setScore(frameScore);
 			}
 
 			else if (i == 9) {
-				int frameScore = 0;
+				frameScore = 0;
 				for (Attempt attempt : frames.get(i).getAttempts()) {
 					frameScore += attempt.getPinsKnockedDown();
 				}
@@ -34,11 +35,11 @@ public class ScoringManager {
 
 					// score frame based on next two rolls
 					if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
-						int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
+						 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 								+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
 						frames.get(i).setScore(frameScore);
 					} else {
-						int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
+						 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 								+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
 						frames.get(i).setScore(frameScore);
 					}
@@ -50,13 +51,13 @@ public class ScoringManager {
 					// mark frame as spare
 					frames.get(i).isSpare = true;
 
-					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
+					 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
 				}
 
 				// process regular
 				else {
-					int frameScore = 0;
+					frameScore = 0;
 					for (Attempt attempt : frames.get(i).getAttempts()) {
 						frameScore += attempt.getPinsKnockedDown();
 					}
@@ -66,8 +67,6 @@ public class ScoringManager {
 			}
 
 		}
-
-		
 
 		return totalEachFrameScore(frames);
 	}
@@ -89,7 +88,7 @@ public class ScoringManager {
 
 			// score final frame
 			if (i == 9) {
-				int frameScore = frames.get(i).getAttempts().get(0).getPinsKnockedDown()
+				 frameScore = frames.get(i).getAttempts().get(0).getPinsKnockedDown()
 						+ frames.get(i).getAttempts().get(1).getPinsKnockedDown()
 						+ frames.get(i).getAttempts().get(2).getPinsKnockedDown();
 				frames.get(i).setScore(frameScore);
@@ -98,11 +97,11 @@ public class ScoringManager {
 			// score strike frame
 			else if (frames.get(i).isStrike) {
 				if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
-					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
+					 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 							+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
 				} else {
-					int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
+					 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
 							+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
 					frames.get(i).setScore(frameScore);
 				}
@@ -111,7 +110,7 @@ public class ScoringManager {
 
 			// score spare frame
 			else if (frames.get(i).isSpare) {
-				int frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
+				 frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown();
 				frames.get(i).setScore(frameScore);
 			}
 		}
