@@ -30,10 +30,11 @@ public class ScoringManager {
 
 					// score frame based on next two rolls
 					if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
-						frameScore = helperFrameScore(i+1, i+2);
+						frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
+								+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
 						// frames.get(i).setScore(frameScore);
 					} else {
-						frameScore = helperFrameScore(i+1, i +1);
+						frameScore = helperFrameScore(i+1, i+1);
 
 					}
 				}
@@ -74,10 +75,10 @@ public class ScoringManager {
 		return gameScore;
 	}
 
-	public int helperFrameScore(int nextFrameNeeded, int nextFrameScore) {
+	public int helperFrameScore(int nextFrameNeeded, int nextFramesScore) {
 	
 		frameScore = 10 + frames.get(nextFrameNeeded).getAttempts().get(0).getPinsKnockedDown()
-				+ frames.get(nextFrameScore).getAttempts().get(1).getPinsKnockedDown();
+				+ frames.get(nextFramesScore).getAttempts().get(1).getPinsKnockedDown();
 		return frameScore;
 	}
 
