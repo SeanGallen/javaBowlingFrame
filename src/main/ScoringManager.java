@@ -75,11 +75,22 @@ public class ScoringManager {
 		return gameScore;
 	}
 
-	public int helperFrameScore(int nextFrameNeeded, int nextFramesScore) {
+	public int helperFrameScore(int nextFrameNeeded, int nextFramesScore, int getInt) {
 	
+		frameScore = 10 + frames.get(nextFrameNeeded).getAttempts().get(getInt).getPinsKnockedDown()
+				+ frames.get(nextFramesScore).getAttempts().get(getInt).getPinsKnockedDown();
+		return frameScore;
+		
+		
+	}
+	
+	public int helperFrameScore(int nextFrameNeeded, int nextFramesScore) {
+		
 		frameScore = 10 + frames.get(nextFrameNeeded).getAttempts().get(0).getPinsKnockedDown()
 				+ frames.get(nextFramesScore).getAttempts().get(1).getPinsKnockedDown();
 		return frameScore;
+		
+		
 	}
 
 	public void processStrikes(Game game) {
@@ -98,12 +109,10 @@ public class ScoringManager {
 			// score strike frame
 			else if (frames.get(i).isStrike) {
 				if (frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown() == 10) {
-					frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
-							+ frames.get(i + 2).getAttempts().get(0).getPinsKnockedDown();
+					frameScore = helperFrameScore(i+1, i+2, 0);
 
 				} else {
-					frameScore = 10 + frames.get(i + 1).getAttempts().get(0).getPinsKnockedDown()
-							+ frames.get(i + 1).getAttempts().get(1).getPinsKnockedDown();
+					frameScore = helperFrameScore(i+1, i+2);
 
 				}
 
